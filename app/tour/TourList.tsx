@@ -14,6 +14,9 @@ interface Tour {
     price: number;
     description: string;
     imageUrl: string | null | undefined;
+    startDate:string;
+    endDate:string;
+    duration:number;
     // duration?: number;
     // startDate?: string;
 }
@@ -46,17 +49,17 @@ const TourList = () => {
             const data: TourApiResponse = await fetchTours(page - 1, TOURS_PER_PAGE);
             console.log('API Response Data:', data);
 
-            if (data && Array.isArray(data.content)) {
+            if (data && data.content && Array.isArray(data.content)) {
                 setTours(data.content);
                 setTotalPages(data.totalPages);
                 // Optional: Cập nhật lại currentPage nếu API trả về trang khác yêu cầu
                 // setCurrentPage(data.number + 1);
-            } else {
+                } else {
                 console.error("Dữ liệu API không hợp lệ:", data);
                 setError("Định dạng dữ liệu tour không hợp lệ.");
                 setTours([]);
                 setTotalPages(0);
-            }
+                }
         } catch (err: any) {
             console.error("Lỗi khi fetch tours:", err);
             setError(`Không thể tải danh sách tour: ${err.message || 'Lỗi không xác định'}`);

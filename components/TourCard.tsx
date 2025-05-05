@@ -11,6 +11,9 @@ interface Tour {
     price: number;
     description: string;
     imageUrl: string | null | undefined;
+    startDate:string;
+    endDate:string;
+    duration:number;
     // Thêm các trường khác nếu cần: duration, startDate...
 }
 
@@ -59,11 +62,11 @@ const TourCard: React.FC<TourCardProps> = ({ tour }) => {
                 <p className="card-text text-muted small flex-grow-1">
                     {shortDescription}
                 </p>
-                <Link href={`/tours/${tourId}`} passHref legacyBehavior>
-                    {/* mt-auto đẩy nút xuống cuối card-body */}
-                    <a className="btn btn-primary mt-auto align-self-start">
-                        Xem Chi Tiết
-                    </a>
+                <Link
+                    href={`/tour/${tourId}`}
+                    className="btn btn-primary mt-auto align-self-start" // Chuyển className trực tiếp vào Link
+                >
+                    Xem Chi Tiết {/* Nội dung nút giờ là con trực tiếp của Link */}
                 </Link>
             </div>
         </div>
