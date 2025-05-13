@@ -5,7 +5,6 @@ import TourList from './tour/TourList';
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to Booking Tour</h1>
       <TourList />
     </div>
   );

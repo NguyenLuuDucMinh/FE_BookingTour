@@ -31,7 +31,7 @@ interface TourApiResponse {
     // Các thuộc tính khác của Page nếu có
 }
 
-const TOURS_PER_PAGE = 15; // 3 cột x 5 hàng
+const TOURS_PER_PAGE = 9; // 3 cột x 3 hàng
 
 const TourList = () => {
     const [tours, setTours] = useState<Tour[]>([]);
